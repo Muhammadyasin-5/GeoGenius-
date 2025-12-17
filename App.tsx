@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Layers, Database, BarChart3, Atom, BrainCircuit, Info } from 'lucide-react';
+import { Layers, Database, BarChart3, Atom, BrainCircuit, Info, Mail, Code2 } from 'lucide-react';
 import { FileCategory, UploadedFile, AppStatus, PredictionResult } from './types';
 import { FileUpload } from './components/FileUpload';
 import { ResultsDashboard } from './components/ResultsDashboard';
@@ -77,7 +77,7 @@ export default function App() {
   };
 
   return (
-    <div className="min-h-screen bg-slate-950 text-slate-200 font-sans selection:bg-emerald-500/30 print:bg-white print:text-black">
+    <div className="min-h-screen bg-slate-950 text-slate-200 font-sans selection:bg-emerald-500/30 print:bg-white print:text-black flex flex-col">
       
       {/* Header */}
       <header className="border-b border-slate-800 bg-slate-900/50 backdrop-blur-md sticky top-0 z-50 print:hidden">
@@ -131,7 +131,7 @@ export default function App() {
       </header>
 
       {/* Main Content */}
-      <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+      <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 flex-1 w-full">
         
         {/* TAB: UPLOAD */}
         {activeTab === 'upload' && (
@@ -247,6 +247,35 @@ export default function App() {
           <ResultsDashboard result={analysisResult} onUpdateTarget={handleUpdateTargetDescription} />
         )}
       </main>
+
+      {/* Footer / Credits */}
+      <footer className="border-t border-slate-800 bg-slate-900/50 backdrop-blur-md py-6 print:hidden mt-auto">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row justify-between items-center gap-4">
+          <div className="flex items-center gap-2">
+            <div className="bg-emerald-500/20 p-1.5 rounded-md border border-emerald-500/20">
+              <Atom className="w-4 h-4 text-emerald-400" />
+            </div>
+            <div className="flex flex-col">
+              <span className="font-bold text-slate-200 text-sm">GeoGenius</span>
+              <span className="text-[10px] text-slate-500 uppercase tracking-wider">Geological Intelligence</span>
+            </div>
+          </div>
+
+          <div className="flex flex-col items-center md:items-end gap-1 text-center md:text-right">
+             <p className="text-xs text-slate-400 flex items-center gap-1.5">
+                <Code2 className="w-3 h-3 text-slate-500" />
+                Developed by <span className="text-slate-200 font-medium">Muhammad Yasin Khan</span>
+             </p>
+             <p className="text-[10px] text-slate-500">
+                Built on <strong className="text-slate-400">Google AI Studio</strong> • Powered by <strong className="text-slate-400">Google Gemini 3 Pro (DeepMind)</strong>
+             </p>
+             <a href="mailto:Yasin.khan@ajku.edu.pk" className="text-[11px] text-emerald-500 hover:text-emerald-400 transition-colors flex items-center gap-1 mt-0.5">
+                <Mail className="w-3 h-3" />
+                Yasin.khan@ajku.edu.pk
+             </a>
+          </div>
+        </div>
+      </footer>
 
       {/* Geological Context Modal */}
       <GeologicalContextModal 
