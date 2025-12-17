@@ -161,27 +161,9 @@ export default function App() {
                 onRemove={handleRemoveFile}
               />
               <FileUpload 
-                category={FileCategory.FIELD_PETROLOGY} 
-                title="Field & Petrography" 
-                accept="image/*"
-                files={files}
-                onUpload={handleUpload}
-                onAddLink={handleAddLink}
-                onRemove={handleRemoveFile}
-              />
-              <FileUpload 
                 category={FileCategory.GEOCHEM} 
                 title="Geochemical Data" 
                 accept=".csv,.txt,.json,.pdf,image/*"
-                files={files}
-                onUpload={handleUpload}
-                onAddLink={handleAddLink}
-                onRemove={handleRemoveFile}
-              />
-              <FileUpload 
-                category={FileCategory.GEOPHYSICS} 
-                title="Geophysical Data" 
-                accept=".csv,.xyz,.grd,.pdf,image/*"
                 files={files}
                 onUpload={handleUpload}
                 onAddLink={handleAddLink}

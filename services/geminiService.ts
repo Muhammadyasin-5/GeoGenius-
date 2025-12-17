@@ -35,20 +35,12 @@ export const analyzeGeologicalData = async (files: UploadedFile[]): Promise<Pred
   // Instructions for the model
   parts.push({
     text: `You are GeoGenius, an expert geological AI system specialized in porphyry and epithermal deposit exploration. 
-    Analyze the provided multimodal data (satellite imagery, geological maps, geochemical data, geophysical surveys, and field/petrographic imagery).
+    Analyze the provided multimodal data (satellite imagery, geological maps, and geochemical data).
     
     Your task:
-    1. Identify alteration minerals (propylitic, phyllic, argillic, potassic, etc.) from visual data.
-    2. **Field & Petrology Analysis**:
-       - **Outcrops**: Identify structural controls (faults, folds), vein orientations, and cross-cutting relationships.
-       - **Hand Specimens/Ore Blocks**: Analyze rock textures (porphyritic, equigranular, brecciated), identify specific sulfide assemblages (Bornite, Chalcopyrite, Pyrite), and visible alteration halos.
-       - **Thin Sections/Photomicrographs**: Identify micro-textures, mineral paragenesis (sequence of crystallization), and alteration replacement textures (e.g., sericite replacing plagioclase cores).
-    3. Correlate these with any provided geochemical anomalies, geophysical signatures (mag/gravity/IP), or map structures.
-       - **Geophysical Integration**: 
-         * **Magnetics**: Look for magnetic highs (indicating Potassic/Magnetite core) or magnetic lows (indicating Phyllic/Magnetite destruction).
-         * **Gravity**: Highs may indicate silicification or dense intrusives; lows may indicate extensive clay alteration.
-         * **IP/Chargeability**: Highs often map the pyrite halo (Phyllic/Propylitic boundary).
-         * For .xyz or .grd files provided as text, analyze the numerical value distribution to identify spatial anomalies.
+    1. Identify alteration minerals (propylitic, phyllic, argillic, potassic, etc.) from visual data (Satellite/Maps).
+    2. Analyze geological structures and lithology from provided maps.
+    3. Correlate these with any provided geochemical anomalies.
     4. Determine the potential for Porphyry and Epithermal systems.
     5. Identify specific X/Y coordinate zones (on a scale of 0-100 relative to the image bounds) that are high-priority targets.
     6. For each target area, provide:
